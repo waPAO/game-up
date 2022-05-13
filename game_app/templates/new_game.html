@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>New Game</h1>
+
+<form method="POST">
+    <fieldset>
+        <legend>Please enter game information:</legend>
+        {{ form.csrf_token }}
+        {{ form.title.label }}
+        {{ form.title }}
+        
+        {{ form.rating.label }}
+        {{ form.rating }}
+    
+        {{ form.description.label }}
+        {{ form.description }}
+    
+        {{ form.collection.label }}
+        {{ form.collection }}
+
+        {{ form.submit }}
+    </fieldset>
+</form>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-md-12 text-center" style="margin-top: 20px;">
+    <h1 style="font-size: 50px;">All Collections</h1>
+    <p>Come check out everyone's favorite games!</p>
+</div>
+
+<div class="row row-cols-1 row-cols-md-4 g-4 text-center" style="margin-left: 20px;">
+    {% for collection in all_collections %}
+    <div class="col">
+        <div class="card m-3" style="width: 20rem;">
+            <div class="card-body">
+                <h4 class="card-title" style="color:mediumblue;"><a href="/collection/{{ collection.id }}">{{ collection.name }}</a></h4>
+                <p class="card-text">
+                    {{collection.description}} 
+                </p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Created By: {{ collection.created_by.name }}</small>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+

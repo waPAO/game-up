@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>New Collection</h1>
+
+<form method="POST">
+    <fieldset>
+        <legend>Please enter collection information:</legend>
+            {{ form.csrf_token }}
+            {{ form.name.label }}
+            {{ form.name }}
+    
+            {{ form.description.label }}
+            {{ form.description }}
+
+            {{ form.submit }}
+    </fieldset>
+</form>
+
+
+{% endblock %}

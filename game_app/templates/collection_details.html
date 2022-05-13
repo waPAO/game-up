@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Collection - {{ collection.name }}</h1>
+<p><strong>Created By:</strong> {{ collection.created_by.username }}</p>
+
+<p>Description: {{ collection.description }}</p> 
+
+<h4>Video Games</h4>
+
+<div class="items">
+    {% for game in collection.games %}
+    <div class="item-details">
+        <a href="/videogame/{{ game.id }}">
+        <p><strong>{{ game.title }}</strong></p></a>
+        <p><strong>Rating:</strong>{{ game.rating }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<form method="POST">
+    <fieldset>
+        <legend>Edit collection if needed</legend>
+        {{ form.csrf_token }}
+        {{ form.name.label }}
+        {{ form.name }}
+
+        {{ form.description.label }}
+        {{ form.description }}
+
+        <input type="submit" value="Update">
+    </fieldset>
+</form>
+
+{% endblock %}
